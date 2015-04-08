@@ -1,0 +1,16 @@
+{
+  "name": "Simple Tibia Shop",
+  "version": "0.1.0",
+
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "angular": "~1.3.0",
+    "angular-resource": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "bootstrap": "~3.2.0",
+    "ng-grid": "~2.0.13",
+    "angular-tabletop": "latest",
+    "angular-cookies": "latest"
+
+  }
+}
