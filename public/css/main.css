@@ -27,7 +27,7 @@ footer {
   font-size: 22px;
 }
 .shop-items img {
-	width: 200px; 
+	width: 100%; 
 	height: auto; 
 	display: block; 
 	margin-left: auto; 
@@ -62,4 +62,55 @@ footer {
 span.rotate {
 	display: block;
 	-webkit-transform: rotate(90deg);
+}
+
+/*	Loading Page */
+.loading-page {
+	padding: 20px 0;
+}
+.loading-page i {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+/* Animation ico */
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+
+/* Size od ico */
+	vertical-align:middle;
+	color:#888;
+	font-size:30px
+}
+
+
+/* CART */
+#cartPopover {
+  position: absolute;
+  top: 40px;
+  width: 500px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  right: 0px;
+  -webkit-box-shadow: 0 1px 2px 1px #ccc;
+  box-shadow: 0 1px 2px 1px #ccc;
+}
+#cartPopover table th {
+  background: #eee;
+  padding: 5px;
+}
+#cartPopover table td {
+  padding: 5px;
+  border-top: 1px solid #ccc;
+}
+.simplecart_p {
+  color: #666;
+  cursor: pointer;
 }

@@ -10,7 +10,8 @@
     "bootstrap": "~3.2.0",
     "ng-grid": "~2.0.13",
     "angular-tabletop": "latest",
-    "angular-cookies": "latest"
+    "angular-cookies": "latest",
+    "angular-ui-router": "latest"
 
   }
 }
