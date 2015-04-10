@@ -15,7 +15,8 @@ function mainController($scope, $routeParams, $http, $timeout, Gdoc, pageService
 
   // $scope.$watch('$viewContentLoaded', function(){
   $scope.$on('$routeChangeSuccess', function () {
-
+      
+      $('#cartPopover').hide();
       $timeout(function() {
         pageService.loadedPage(true);
       }, 1000);
