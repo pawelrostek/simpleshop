@@ -35,7 +35,7 @@
 
 <!-- Page Main Navbar  -->
 <nav id="tom-nav" class="navbar navbar-inverse">
-  <div class="container">
+  <div id="top-navbar" class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Tibia shop</a>
     </div>
@@ -43,17 +43,16 @@
         <p class="navbar-text simplecart_p">
             <span class="showCart">
                 <i class="fa fa-shopping-cart"></i> 
-                <span class="simpleCart_quantity">0</span>
+                <span class="simpleCart_quantity"></span>
                 rzeczy - <span class="simpleCart_total">0.00 PLN</span>
                 <i class="dropdown fa fa-chevron-circle-down"></i> 
                 &nbsp;&nbsp;
             </span>
-            <button class="btn btn-xs btn-primary">Checkout</button>
+            <button class="btn btn-xs btn-primary simpleCart_checkout">Checkout</button>
         </p>
+        <div ng-include="'partial/card.html'"></div>
     </div>
 </nav>
-
-<div ng-include="'partial/card.html'"></div>
 
 <div class="container text-center" ng-show="!loaded_page">
     <div class="loading-page">
@@ -80,6 +79,10 @@
             <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
             <span ng-bind="site_name"></span>
           </a>
+
+        (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+        <a href="javascript:;" class="simpleCart_empty">Clean</a>
+
     </div>
   </div>
 </nav>
@@ -99,8 +102,84 @@
     <span class="rotate">Manu</span>
 </div>
 
+    <ul style="border:1px solid blue">
+        <li class="simpleCart_shelfItem">
+            <span class="item_id">1</span>
+            <span class="item_name">Produkt 1</span>
+            <span class="item_price">187.95 PLN</span>
+            <select class="item_Size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>    
+            </select>
+            <input type="checkbox" class="item_color" value="Blue"/>
+            <label>Blue</label>
+            <input type="checkbox" class="item_color" value="Yellow"/>
+            <label>Yellow</label>
+
+            <input type="hidden" class="item_shipping" value="20" />    
+            <input type="text" class="item_quantity" value="1" />
+            <input type="button" class="item_add" value="Dodaj do koszyka" />
+        </li>
+
+        <li class="simpleCart_shelfItem">
+            <span class="item_id">2</span>
+            <span class="item_name">Produkt 2</span>
+            <span class="item_price">10.95 PLN</span>
+            <select class="item_Size">
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>    
+            </select>
+            <input type="checkbox" class="item_color" value="Blue"/>
+            <label>Blue</label>
+            <input type="checkbox" class="item_color" value="Yellow"/>
+            <label>Yellow</label>
+
+            <input type="hidden" class="item_shipping" value="20" />    
+            <input type="text" class="item_quantity" value="1" />
+            <input type="button" class="item_add" value="Dodaj do koszyka" />
+        </li>
+
+        <li>
+            <span>Nazwa produktu 3</span>
+            <span>$34.95</span>
+            <a href="javascript:;" onclick="simpleCart.add({name:'Produkt 3', price: 34.95,size:'tiny',thumb:'e.png', id: '3'});" >Dodaj do koszyka</a>
+        </li>
+    </ul>
+
+<script src="public/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="public/js/vendor/simpleCart.min.js"></script>
+<script type="text/javascript">
+
+$(function() {
+
+
+        simpleCart({
+          cartColumns: [
+                { attr: "name", label: "Nazwa"},
+                { view: "currency", attr: "price", label: "Kwota"},
+                { view: "decrement", label: false},
+                { attr: "quantity", label: "Ilość"},
+                { view: "increment", label: false},
+                { attr: "total", label: "Łącznie" },
+                { view: "id", attr: "id", label: "ID" },
+                { view: "remove", text: "Usuń", label: false}
+            ],
+          cartStyle: "table", 
+              checkout: {
+                    type: "PayPal",
+                  email: "power4webdesign@gmail.com"
+              }
+          });
+
+
+    $( "#cartPopover" ).hide();
+    $(".showCart").click(function() {
+        $( "#cartPopover" ).toggle(function() {});
+    });
+});
+</script>
+
 </body>
 </html>
-<script type="text/javascript">
-    $('#cartPopover').hide
-</script>
