@@ -25,7 +25,6 @@ function mainController($scope, $routeParams, $http, $timeout, Gdoc, pageService
 }
 
 
-
 // Rezise element DIV
 window.onresize = function() {
   reset_itemHeight();

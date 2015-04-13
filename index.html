@@ -10,17 +10,26 @@
 
     <!-- CSS (load bootstrap) -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <!-- CSS Isolate -->
+    <link href="public/css/minimal-isolate.css" rel='stylesheet'/>
+    <!-- CSS loading bar -->
+    <link href='bower_components/angular-loading-bar/src/loading-bar.css' rel='stylesheet' />
+    <!-- CSS Block UI -->
+    <link href="bower_components/angular-block-ui/dist/angular-block-ui.min.css" rel="stylesheet" />
+
+    <!-- Fonts -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-
-
     <!-- Custom CSS -->
     <link href="public/css/main.css" rel='stylesheet'/>
+
+
 
     <!-- JS (load angular, ui-router, and our custom js file) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery.lazyload/jquery.lazyload.js"></script>
 
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -29,12 +38,21 @@
     <script src="bower_components/angular-tabletop/TabletopProvider.js"></script>
     <script src="bower_components/tabletop/src/tabletop.js"></script>
 
+    <!-- JS Isolate -->
+    <script src="bower_components/ng-isotope/isotope.pkgd.js"></script>
+    <script src="bower_components/ng-isotope/ng-isotope.js"></script>
+    <!-- JS Loading bar -->
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <!-- JS Block Ui -->
+    <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+
     <script src="shopApp.js"></script>
     <script src="routers/router.js"></script>
     <script src="services/Gdoc.js"></script>
     <script src="services/page.js"></script>
     <script src="controllers/mainController.js"></script>
     <script src="directives/LazyLoad.js"></script>
+    <script src="directives/ReadMore.js"></script>
 </head>
 <body>
 
@@ -69,7 +87,7 @@
 <div ng-show="loaded_page">
 
 <!-- Page description -->
-<div class="container" ng-show="site_description">
+<div block-ui="navbar-load" class="container" ng-show="site_description">
     <div class="well">
         <h1 ng-bind="site_name"></h1>
         <p class="lead" ng-bind="site_description"></p>
@@ -107,53 +125,6 @@
     <span class="rotate">Manu</span>
 </div>
 
-<div style="display:none">
-    <ul style="border:1px solid blue">
-        <li class="simpleCart_shelfItem">
-            <span class="item_id">1</span>
-            <span class="item_name">Produkt 1</span>
-            <span class="item_price">187.95 PLN</span>
-            <select class="item_Size">
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>    
-            </select>
-            <input type="checkbox" class="item_color" value="Blue"/>
-            <label>Blue</label>
-            <input type="checkbox" class="item_color" value="Yellow"/>
-            <label>Yellow</label>
-
-            <input type="hidden" class="item_shipping" value="20" />    
-            <input type="text" class="item_quantity" value="1" />
-            <input type="button" class="item_add" value="Dodaj do koszyka" />
-        </li>
-
-        <li class="simpleCart_shelfItem">
-            <span class="item_id">2</span>
-            <span class="item_name">Produkt 2</span>
-            <span class="item_price">10.95 PLN</span>
-            <select class="item_Size">
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>    
-            </select>
-            <input type="checkbox" class="item_color" value="Blue"/>
-            <label>Blue</label>
-            <input type="checkbox" class="item_color" value="Yellow"/>
-            <label>Yellow</label>
-
-            <input type="hidden" class="item_shipping" value="20" />    
-            <input type="text" class="item_quantity" value="1" />
-            <input type="button" class="item_add" value="Dodaj do koszyka" />
-        </li>
-
-        <li>
-            <span>Nazwa produktu 3</span>
-            <span>$34.95</span>
-            <a href="javascript:;" onclick="simpleCart.add({name:'Produkt 3', price: 34.95,size:'tiny',thumb:'e.png', id: '3'});" >Dodaj do koszyka</a>
-        </li>
-    </ul>
-</div>
 
 <script src="public/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 <script src="public/js/vendor/simpleCart.min.js"></script>

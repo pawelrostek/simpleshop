@@ -106,3 +106,19 @@
        -o-transition: none;
           transition: none;
 }
+
+
+/*  Isolate style */
+.element-item {
+  position: relative;
+  width: 280px;
+  height: 270px;
+  float: left;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid rgba(34, 34, 34, 0.17);
+}
+
+.element-item img {
+    width: 190px;
+}

@@ -11,8 +11,7 @@
 		<img class="lazy" ng-src="public/img/loading.gif" data-original="{{ item.item_img }}">
             </div>
             <h2 ng-bind="item.item_name" class="item_name"></h2>
-            <div class="item_description" ng-bind="item.item_description">
-            </div>
+            <div class="item_description" read-more more-text="więcej..." less-text="zwiń" limit="120" content="{{item.item_description}}"></div>
             <div style="margin-top:10px;">
                 <button class="item_add btn btn-xs btn-success item_add"> Add to Cart</button> 
                 <span class="item_price ng-binding"><span ng-bind="item.item_price"></span> PLN</span>
