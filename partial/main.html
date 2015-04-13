@@ -8,7 +8,7 @@
             <input type="hidden" class="item_size" value="44" /> 
             <input type="hidden" class="item_quantity" value="1" />
             <div class="item_image">
-                <img ng-src="{{item.item_img}}" >
+		<img class="lazy" ng-src="public/img/loading.gif" data-original="{{ item.item_img }}">
             </div>
             <h2 ng-bind="item.item_name" class="item_name"></h2>
             <div class="item_description" ng-bind="item.item_description">
