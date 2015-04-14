@@ -9,7 +9,8 @@ var routerApp = angular.module('routerApp',
   'blockUI',
   'ng-isotope',
   'Gdoc',
-  'pageService'
+  'pageService',
+  'ui.bootstrap'
 	]);
 
 routerApp
