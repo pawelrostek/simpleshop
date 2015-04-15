@@ -1,0 +1,41 @@
+/*	Isolate items */
+.element-item h1,
+.element-item h2,
+.element-item h3,
+.element-item h4,
+.element-item p {
+  background-color: transparent!important;
+}
+
+.element-item {
+  position: relative;
+  width: 280px;
+  height: 310px;
+  float: left;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid rgba(34, 34, 34, 0.17);
+}
+
+.element-item img {
+    width: 190px;
+}
+
+.filters-isotope button {
+  color: #777;
+  font-size: 18px;
+  box-shadow:none;
+  border-radius: 0;
+  margin-right: 0px;
+  padding: 10px 40px;
+}
+.filters-isotope button:hover {
+    color: white;
+    border:1px solid transparent;
+    background-color: rgba(254, 86, 7, 0.59);
+}
+.filters-isotope button.active {
+  color:white;
+  border:1px solid transparent;
+  background-color: #fe5607;
+}

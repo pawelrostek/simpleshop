@@ -1,0 +1,42 @@
+
+<div class="container-full">
+
+<div ng-init="certList = [{name: 'Programowanie', category: 'sportowe', ico: 'public/img/loading.gif'}, {name: 'Sieci komputerowe', category: 'running', ico: 'public/img/loading
+.gif'}]"></div>
+
+    <!-- Content of section -->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <div class="filters-isotope" isotope-filter isotope-filter-event="filter-elements" isotope-filter-group="certyficate">
+                    <button isotope-filter-by="*" class="btn btn-default active">All</button>
+                    <button isotope-filter-by=".sportowe" class="btn btn-default">sportowe</button>
+                    <button isotope-filter-by=".running" class="btn btn-default">running</button>
+                    <button isotope-filter-by=".snowboard" class="btn btn-default">snowboard</button>
+                    <!--<input type="text" ng-model="data.customeFilter" isotope-filter-by=".{{data.customeFilter}} " />-->
+                </div>
+                <p>&nbsp;</p>
+
+                <!-- attributes available: isotope-layout-mode="fitRows" isotope-item-selector="div" -->
+                <div isotope-grid="spreadsheet" isotope-reload-event="reload-elements"
+                     isotope-filter-event="filter-elements">
+                    <div class="element-item {{element.category}}" data-category="{{element.category}}" ng-repeat="element in spreadsheet">
+
+                        <input type="hidden" class="item_id" value="{{element.item_id}}" /> 
+                        <input type="hidden" class="item_size" value="44" /> 
+                        <input type="hidden" class="item_quantity" value="1" />
+                        <img class="lazy" ng-src="public/img/loading.gif" data-original="{{ element.item_img }}">
+                        <h4 ng-bind="element.item_name" class="item_name"></h4>
+                        <p>
+                            <button class="item_add btn btn-xs btn-success item_add"> Add to Cart</button> 
+                            <span class="item_price ng-binding"><span ng-bind="element.item_price"></span> PLN</span>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<p>&nbsp;</p>

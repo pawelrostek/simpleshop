@@ -1,166 +1,187 @@
 <!DOCTYPE html>
 <html ng-app="routerApp">
-<head>
-    <meta name="description" content="Shop template ">
-    <meta name="keywords" content="angular, bootstrap">
-    <meta name="author" content="Power Web Design">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Power Web Design</title>
+    <head>
+        <meta name="description" content="Shop template ">
+        <meta name="keywords" content="angular, bootstrap">
+        <meta name="author" content="Power Web Design">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Power Web Design</title>
 
-    <!-- CSS (load bootstrap) -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <!-- CSS Isolate -->
-    <link href="public/css/minimal-isolate.css" rel='stylesheet'/>
-    <!-- CSS loading bar -->
-    <link href='bower_components/angular-loading-bar/src/loading-bar.css' rel='stylesheet' />
-    <!-- CSS Block UI -->
-    <link href="bower_components/angular-block-ui/dist/angular-block-ui.min.css" rel="stylesheet" />
+        <!-- jQuery (JS library) -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery.lazyload/jquery.lazyload.js"></script>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <!-- Custom CSS -->
-    <link href="public/css/main.css" rel='stylesheet'/>
+        <!-- Bootstrap (CSS, JS) -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 
+        <!--Angular JS * -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
 
+        <!-- TableTop (JS)--> 
+        <script src="bower_components/angular-tabletop/TabletopProvider.js"></script>
+        <script src="bower_components/tabletop/src/tabletop.js"></script>
 
-    <!-- JS (load angular, ui-router, and our custom js file) -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery.lazyload/jquery.lazyload.js"></script>
+        <!-- Isolate (CSS, JS) -->
+        <link href="public/css/minimal-isolate.css" rel='stylesheet'/>
+        <script src="bower_components/ng-isotope/isotope.pkgd.js"></script>
+        <script src="bower_components/ng-isotope/ng-isotope.js"></script>
 
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- Loading Bar (CSS, JS) -->
+        <link href='bower_components/angular-loading-bar/src/loading-bar.css' rel='stylesheet' />
+        <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    
-    <script src="bower_components/angular-tabletop/TabletopProvider.js"></script>
-    <script src="bower_components/tabletop/src/tabletop.js"></script>
+        <!-- Block UI (CSS, JS) -->
+        <link href="bower_components/angular-block-ui/dist/angular-block-ui.min.css" rel="stylesheet" />
+        <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
 
-    <!-- JS Isolate -->
-    <script src="bower_components/ng-isotope/isotope.pkgd.js"></script>
-    <script src="bower_components/ng-isotope/ng-isotope.js"></script>
-    <!-- JS Loading bar -->
-    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
-    <!-- JS Block Ui -->
-    <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
-    <!-- Ui Bootstrap -->
-    <script src="bower_components/ui-bootstrap/ui-bootstrap-custom-0.12.1.min.js"></script>    
-    <script src="bower_components/ui-bootstrap/ui-bootstrap-custom-tpls-0.12.1.min.js"></script>
+        <!-- Ui Bootstrap -->
+        <script src="public/js/ui-bootstrap/ui-bootstrap-custom-0.12.1.min.js"></script>    
+        <script src="public/js/ui-bootstrap/ui-bootstrap-custom-tpls-0.12.1.min.js"></script>
 
-    <script src="shopApp.js"></script>
-    <script src="routers/router.js"></script>
-    <script src="services/Gdoc.js"></script>
-    <script src="services/page.js"></script>
-    <script src="controllers/mainController.js"></script>
-    <script src="directives/LazyLoad.js"></script>
-    <script src="directives/ReadMore.js"></script>
-</head>
-<body>
+        <!-- Angular notify (CSS, JS) -->
+        <link href="bower_components/angular-notify/dist/angular-notify.css" rel="stylesheet" />
+        <script src="bower_components/angular-notify/dist/angular-notify.js"></script>
+        
+        <!-- Angular Growl (CSS, JS) -->
+<!--        <link href="bower_components/angular-growl/build/angular-growl.min.css" rel="stylesheet" />
+        <script src="bower_components/angular-growl/build/angular-growl.min.js"></script>-->
+        
+<!-- CSS Ang UI Notification -->
+<!--<link href="bower_components/angular-ui-notification/dist/angular-ui-notification.min.css" rel="stylesheet" />-->
+        
+        
+        <!-- Custom CSS -->
+        <link href="public/css/main.css" rel='stylesheet'/>
+        <link href="public/css/smart-cart.css" rel='stylesheet'/>
+        <link href="public/css/isotope.css" rel='stylesheet'/>
+        <link href="public/css/splash.css" rel='stylesheet'/>
 
-<!-- Page Main Navbar  -->
-<nav id="tom-nav" class="navbar navbar-inverse">
-  <div id="top-navbar" class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Tibia shop</a>
-    </div>
-    <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-4">
-        <p class="navbar-text simplecart_p">
-            <span class="showCart">
-                <i class="fa fa-shopping-cart"></i> 
-                <span class="simpleCart_quantity"></span>
-                rzeczy - <span class="simpleCart_total">0.00 PLN</span>
-                <i class="dropdown fa fa-chevron-circle-down"></i> 
-                &nbsp;&nbsp;
-            </span>
-            <button class="btn btn-xs btn-primary simpleCart_checkout">Checkout</button>
-        </p>
-        <div ng-include="'partial/card.html'"></div>
-    </div>
-</nav>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
-<div class="container text-center" ng-show="!loaded_page">
-    <div class="loading-page">
-        <i class="fa fa-cog fa-spin load-ico"></i>
-         loading...
+        <script src="shopApp.js"></script>
+        <script src="routers/wdRouter.js"></script>
+        <script src="services/wdGdoc.js"></script>
+        <script src="services/wdPageService.js"></script>
+        <script src="services/wdSplash.js"></script>
+        <script src="controllers/startController.js"></script>
+        <script src="directives/LazyLoad.js"></script>
+        <script src="directives/ReadMore.js"></script>
+    </head>
+    <body>
+
+        <!-- Page Main Navbar  -->
+        <nav id="tom-nav" class="navbar navbar-inverse">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Tibia Shop</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a ng-href="#/">Start</a></li>
+                        <li><a ng-href="#isotope">Isotope</a></li>
+                        <li><a ng-href="#uibootstrap">UI Bootstrap</a></li>
+                        <li><a ng-href="#cart">Koszyk</a></li>
+                        <li><a ng-href="#notifications">Notyfications</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li id="nav-smart-cart" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <span class="simpleCart_quantity"></span>
+                                rzeczy - <span class="simpleCart_total">0.00 PLN</span>
+                                <i class="caret"></i> 
+                            </a>
+                            <div class="dropdown-menu" role="menu">
+                                <div class="simpleCart_items"></div>
+                            </div>
+                        </li>
+
+                        <li class="navbar-text"><button class="btn btn-xs btn-primary simpleCart_checkout">Zapłać</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container text-center" ng-show="!loaded_page">
+            <div class="loading-page">
+                <i class="fa fa-cog fa-spin load-ico"></i>
+                loading...
+            </div>
         </div>
-</div>
 
-<div ng-show="loaded_page">
+        <div ng-show="loaded_page">
 
-<!-- Page description -->
-<div block-ui="navbar-load" class="container" ng-show="site_description">
-    <div class="well">
-        <h1 ng-bind="site_name"></h1>
-        <p class="lead" ng-bind="site_description"></p>
-    </div>
-</div>
+            <!-- Page wrapper -->
+            <nav class="navbar navbar-default" ng-show="site_name">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#/">
+                            <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+                            <span ng-bind="site_name"></span>
+                        </a>
 
-<!-- Page wrapper -->
-<nav class="navbar navbar-default" ng-show="site_name">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#/">
-            <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
-            <span ng-bind="site_name"></span>
-          </a>
+                        (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                        <a href="javascript:;" class="simpleCart_empty">Clean</a>
 
-        (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
-        <a href="javascript:;" class="simpleCart_empty">Clean</a>
+                    </div>
+                </div>
+            </nav>
 
-    </div>
-  </div>
-</nav>
+            <!-- Page Main Content -->
+            <div class="container">
+                <div data-ng-view></div>
+            </div>
 
-<!-- Page Main Content -->
-<div class="container">
-    <div data-ng-view></div>
-</div>
+        </div>
 
-</div>
+        <footer class="navbar-fixed-bottom text-center">
+            <p>© Power WebDesign 2015</p>
+        </footer>
 
-<footer class="navbar-fixed-bottom text-center">
-    <p>© Power WebDesign 2015</p>
-</footer>
+        <div ng-include="'partial/static-left-menu.html'"></div>
+        <div ng-include="'partial/growl.html'"></div>
+        
+        <script src="public/js/vendor/simpleCart.min.js"></script>
+        <script type="text/javascript">
 
-<div class="static-left-menu">
-    <span class="rotate">Manu</span>
-</div>
+            $(function () {
+                simpleCart({
+                    cartColumns: [
+                        {attr: "name", label: "Nazwa"},
+                        {view: "currency", attr: "price", label: "Kwota"},
+                        {view: "decrement", label: false},
+                        {attr: "quantity", label: "Ilość"},
+                        {view: "increment", label: false},
+                        {attr: "total", label: "Łącznie"},
+                        {view: "id", attr: "id", label: "ID"},
+                        {view: "remove", text: "Usuń", label: false}
+                    ],
+                    cartStyle: "table",
+                    checkout: {
+                        type: "PayPal",
+                        email: "power4webdesign@gmail.com"
+                    }
+                });
+            });
+        </script>
 
-
-<script src="public/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-<script src="public/js/vendor/simpleCart.min.js"></script>
-<script type="text/javascript">
-
-$(function() {
-
-
-        simpleCart({
-          cartColumns: [
-                { attr: "name", label: "Nazwa"},
-                { view: "currency", attr: "price", label: "Kwota"},
-                { view: "decrement", label: false},
-                { attr: "quantity", label: "Ilość"},
-                { view: "increment", label: false},
-                { attr: "total", label: "Łącznie" },
-                { view: "id", attr: "id", label: "ID" },
-                { view: "remove", text: "Usuń", label: false}
-            ],
-          cartStyle: "table", 
-              checkout: {
-                    type: "PayPal",
-                  email: "power4webdesign@gmail.com"
-              }
-          });
-
-
-    $( "#cartPopover" ).hide();
-    $(".showCart").click(function() {
-        $( "#cartPopover" ).toggle(function() {});
-    });
-});
-</script>
-
-</body>
+    </body>
 </html>

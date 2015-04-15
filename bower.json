@@ -19,7 +19,13 @@
 
     "bootstrap": "~3.2.0",
     "ng-grid": "~2.0.13",
-    "ng-isotope": "latest"
-
+    "ng-isotope": "latest",
+    
+    "angular-animate": "latest",
+    "angular-sanitize": "latest",
+    
+    "angular-notify": "latest"
+    
+    
   }
 }
