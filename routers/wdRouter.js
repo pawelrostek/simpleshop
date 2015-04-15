@@ -86,6 +86,11 @@ routerApp
           controller: 'startController',
           templateUrl: 'partial/notifications.html'
       })
+      .when('/super-effects',
+      {
+          controller: 'startController',
+          templateUrl: 'partial/super-effects.html'
+      })
       .otherwise({
           redirectTo: '/'
       })

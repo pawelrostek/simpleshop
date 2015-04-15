@@ -1,0 +1,124 @@
+/*  Effects Background and Images */
+.grayscale {
+  -webkit-filter: grayscale(100%);
+}
+.grayscale:hover {
+  -webkit-filter: grayscale(0%);
+}
+
+.sepia {
+  -webkit-filter: sepia(100%);
+}
+.sepia:hover {
+  -webkit-filter: sepia(0%);
+}
+
+.brightness {
+  -webkit-filter: brightness(50%);
+}
+.brightness:hover {
+  -webkit-filter: brightness(0%);
+}
+
+.contrast {
+  -webkit-filter: contrast(200%);
+}
+.contrast:hover {
+  -webkit-filter: contrast(100%);
+}
+
+.gaussian-blur {
+  -webkit-filter: blur(10px);
+}
+.gaussian-blur:hover {
+  -webkit-filter: blur(0px);
+}
+
+
+/* Multi layer backgrounds */
+.weather {
+  width: 500px;
+  height: 280px;
+  margin: 50px auto;
+  background-image: url("../img/effects/overcast.png"),
+  url("../img/effects/rainbow.png"), 
+  url("../img/effects/overcast.png"),
+  url("../img/effects/sunny.png");
+  background-position: 150px 25px, 
+  200px 10px, 
+  250px 25px, 
+  100px 10px;
+  background-repeat: no-repeat;
+  -webkit-animation: weather 10s;
+}
+@-webkit-keyframes weather { 
+  0% {
+    background-position: 120px 25px, 200px 10px, 280px 25px, 80px 10px;
+  }
+  100% {
+    background-position: 150px 25px, 200px 10px, 250px 25px, 100px 10px;
+  }
+}
+.weather.animation {
+  -webkit-animation: weather 5s;
+  -moz-animation: weather 5s;
+  -ms-animation: weather 5s;
+  -o-animation: weather 5s;
+  animation: weather 5s;
+}
+
+
+/*  Bounce arrow */
+.site__header {
+  -webkit-animation: bounceInUp 1s;
+  -webkit-animation-name: bounceInUp;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: initial;
+  -webkit-animation-delay: initial;
+  -webkit-animation-iteration-count: initial;
+  -webkit-animation-direction: initial;
+  -webkit-animation-fill-mode: initial;
+  -webkit-animation-play-state: initial;
+}
+
+span.eff{
+  display: block;
+  float: left;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 2px;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.animated {
+  -webkit-animation-duration: 2s;
+}
+.d1 {
+  -webkit-animation-duration: 1s;
+}
+.d3 {
+  -webkit-animation-duration: 2s;
+}
+.d3 {
+  -webkit-animation-duration: 3s;
+}
+.mega {
+  font-size: 6rem;
+  line-height: 1;
+}
+.site__title {
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 60s infinite linear;
+  -webkit-animation-name: hue;
+  -webkit-animation-duration: 60s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: initial;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: initial;
+  -webkit-animation-fill-mode: initial;
+  -webkit-animation-play-state: initial;
+}
