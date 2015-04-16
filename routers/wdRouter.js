@@ -14,8 +14,9 @@ var routerApp = angular.module('routerApp',
             'wdSplash',
             'cgNotify',
             'ui-notification',
+//            'ui.router',
             //  'angular-growl',
-            //  'ngSanitize',
+              'ngSanitize',
             'ngAnimate'
         ]);
 
@@ -25,6 +26,17 @@ routerApp
                 $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://script.googleusercontent.com**', 'http://drive.google.com/**', 'https://docs.google.com/**']);
             }])
 
+// Progress bar site load
+        .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+//                cfpLoadingBarProvider.includeSpinner = false;
+                cfpLoadingBarProvider.latencyThreshold = 50;
+            }])
+
+// Block Ui load element
+        .config(function (blockUIConfig) {
+            blockUIConfig.delay = 100;
+        })
+        
 //Notification Growl
 //  .config(['growlProvider', function(growlProvider) {
 //      growlProvider.onlyUniqueMessages(false);
@@ -38,18 +50,6 @@ routerApp
 //  //     $httpProvider.responseInterceptors.push(growlProvider.serverMessagesInterceptor);
 //  // }])
 
-
-// Progress bar site load
-        .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
-//    cfpLoadingBarProvider.includeSpinner = false;
-                cfpLoadingBarProvider.latencyThreshold = 50;
-            }])
-
-        // Block Ui load element
-        .config(function (blockUIConfig) {
-//    blockUIConfig.message = 'Please stop clicking!';
-            blockUIConfig.delay = 100;
-        })
 
 // Router provider
         .config(function ($routeProvider) {
@@ -93,6 +93,35 @@ routerApp
                         redirectTo: '/'
                     })
         });
+        
+        
+//      Router UI - State
+//        .config(function ($stateProvider, $urlRouterProvider) {
+//
+//            $urlRouterProvider.otherwise('/start');
+//
+//            $stateProvider
+//
+//                    .state('super-effects', {
+//                        url: "/super-effects",
+//                        templateUrl: "partial/super-effects.html",
+//                        controller: "startController"
+//                    })
+//                    .state('start', {
+//                        url: '/start',
+//                        views: {
+//                            '': {
+//                                templateUrl: 'partial/start.html',
+//                                controller: 'startController'
+//                            },
+////                            'vw-about': {
+////                                templateUrl: 'partial/start.html',
+////                                controller: 'startController'
+////                            }
+//                        }
+//                    });
+//
+//        });
 
 routerApp.run(function ($rootScope, $timeout, blockUI, cfpLoadingBar, $splash, wdPageService, Notification) {
 
@@ -133,39 +162,39 @@ routerApp.run(function ($rootScope, $timeout, blockUI, cfpLoadingBar, $splash, w
         myBlockUI.stop();
         $rootScope.fakeIntroBU = false;
     }, 5750);
-    
-    
-    
-    $rootScope.primary = function() {
+
+
+
+    $rootScope.primary = function () {
         Notification('Primary notification');
     };
-    $rootScope.error = function() {
+    $rootScope.error = function () {
         Notification.error('Error notification');
     };
-    $rootScope.success = function() {
+    $rootScope.success = function () {
         Notification.success('Success notification');
     };
-    $rootScope.info = function() {
+    $rootScope.info = function () {
         Notification.info('Information notification');
     };
-    $rootScope.warning = function() {
+    $rootScope.warning = function () {
         Notification.warning('Warning notification');
     };
-    $rootScope.primaryTitle = function() {
+    $rootScope.primaryTitle = function () {
         Notification({message: 'Primary notification', title: 'Primary notification'});
     };
-    $rootScope.errorTime = function() {
+    $rootScope.errorTime = function () {
         Notification.error({message: 'Error notification 1s', delay: 1000});
     };
-    $rootScope.successTime = function() {
+    $rootScope.successTime = function () {
         Notification.success({message: 'Success notification 20s', delay: 20000});
     };
-    $rootScope.errorHtml = function() {
+    $rootScope.errorHtml = function () {
         Notification.error({message: '<b>Error</b> <s>notification</s>', title: '<i>Html</i> <u>message</u>'});
     };
-    $rootScope.successHtml = function() {
+    $rootScope.successHtml = function () {
         Notification.success({message: 'Success notification<br>Some other <b>content</b><br><a href="https://github.com/alexcrack/angular-ui-notification">This is a link</a><br><img src="https://angularjs.org/img/AngularJS-small.png">', title: 'Html content'});
     };
-    
+
 
 });
