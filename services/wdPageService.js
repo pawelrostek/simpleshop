@@ -9,6 +9,9 @@
 angular.module('wdPageService', [])
         .factory('wdPageService', function ($rootScope) {
             return {
+                renderOnlyContent: function (value) {
+                    $rootScope.show_only_content = value;
+                },
                 setTitle: function (title) {
                     $rootScope.title = title;
                 },

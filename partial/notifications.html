@@ -1,17 +1,72 @@
 
 <div class="row">
     <div class="col-md-12">
-    <p>Notify 1</p>
-        <button class="btn btn-md btn-info" ng-click="myNotify('Test')">Test</button>
-    </div>
-    <div class="col-md-12">
-    <p>Notify 2</p>
-        <button class="btn btn-md btn-warning" ng-click="addSpecialWarnMessage()">Pawel splash</button>
+        <p>Notify 1</p>
+        <button class="btn btn-md btn-info" ng-click="myNotify('Wiadomość testoewa z prostego notyfikatora')">Test notify</button>
     </div>
 </div>
 
+<div class="container text-center" style="margin-top: 120px;">
+    <div class="btn-group-vertical">
+        <button class="btn btn-info"
+                data-notification-ui 
+                data-nui-title="Informacja" 
+                data-nui-delay="300000"
+                data-nui-html-link="HTML Info notification">
+            Notification<br>
+            Some contents <b>of notification</b><br>
+            <a href="https://github.com/alexcrack/angular-ui-notification">This is a link</a><br>
+            <img src="https://angularjs.org/img/AngularJS-small.png">
+        </button>
+    </div>
+</div>
 
 <div>
+    <div class="container">
+        <h3>Notification UI with directives</h3>
+        <div class="btn-group-vertical">
+            <button class="btn btn-primary" 
+                    data-nui-type="primary"
+                    data-notification-ui 
+                    data-nui-title=""
+                    data-nui-delay="10000"
+                    data-nui-message="Treść wiadomości powiadomienia">Primary Notification Directives</button>
+            <button class="btn btn-danger"
+                    data-nui-type="error"
+                    data-notification-ui 
+                    data-nui-title="Error"
+                    data-nui-delay="10000"
+                    data-nui-message="Treść wiadomości powiadomienia">Error Notification Directives</button>
+            <button class="btn btn-success"
+                    data-nui-type="success"
+                    data-notification-ui 
+                    data-nui-title="Success"
+                    data-nui-delay="10000"
+                    data-nui-message="Treść wiadomości powiadomienia">Success Notification Directives</button>
+            <button class="btn btn-info"
+                    data-nui-type="info"
+                    data-notification-ui 
+                    data-nui-title="Info"
+                    data-nui-delay="10000"
+                    data-nui-message="Treść wiadomości powiadomienia">Information Notification Directives</button>
+            <button class="btn btn-warning"
+                    data-nui-type="warning"
+                    data-notification-ui 
+                    data-nui-title=""
+                    data-nui-delay="10000"
+                    data-nui-message="Treść wiadomości powiadomienia">Warning Notification Directives
+            </button>
+
+            <button class="btn btn-info"
+                    data-notification-ui 
+                    data-nui-title="Informacja" 
+                    data-nui-delay="300000"
+                    data-nui-html-link="HTML Info notification"
+                    data-nui-message="Treść wiadomości powiadomienia">Success notification<br>Some other <b>content</b><br><a href="https://github.com/alexcrack/angular-ui-notification">This is a link</a><br><img src="https://angularjs.org/img/AngularJS-small.png">
+            </button>
+        </div>
+    </div>
+
     <div class="container">
         <h3>Types of notifications</h3>
         <div class="btn-group-vertical">

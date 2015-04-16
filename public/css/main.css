@@ -103,17 +103,3 @@ span.more-text.show {
 		display: inline !important
 }
 
-
-.growl {
-  top: auto; 
-  z-index: 9999;
-  bottom: 39px;
-}
-
-.growl-item.ng-enter,
-.growl-item.ng-leave {
-    -webkit-transition:1s linear all;
-    -moz-transition:1s linear all;
-    -o-transition:1s linear all;
-    transition:1s linear all;
-}
